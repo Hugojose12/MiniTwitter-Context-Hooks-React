@@ -7,8 +7,7 @@ class Toolbar extends Component {
 
   componentDidMount () {
     auth.onAuthStateChanged(user => {
-	  //this.props.context.getUser({ user });
-	  this.props.context.dispatch({type: 'getUser', payload: { user }})
+	  this.props.context.dispatch({type: 'getUser', payload: {user} })
     });
   }
 
@@ -40,7 +39,6 @@ class Toolbar extends Component {
 
   render() {
 	const {context:{user}} = this.props;
-	console.log(this.props)
     return (
         <div className="Toolbar">
           <nav className="navbar navbar-light bg-light">

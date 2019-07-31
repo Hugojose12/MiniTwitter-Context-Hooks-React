@@ -1,27 +1,16 @@
 import React, {Component, createContext} from 'react';
+import reducer from './reducers';
 
 const {Provider, Consumer} = createContext()
 
-const reducer = (state, action) => {
-    console.log('Reducer:', action)
-    switch(action.type){
-	    case 'getUser':
-				return {...state, ...action.payload.user}
-	}
-}
-
 class ContextStore extends Component {
-    
-    //getUser = user => {
-    //    this.setState(user)
-    //}   
-
+     
     state = {
         user: null,
-        getUser: this.getUser,
         dispatch: (action) => {
 						const response = reducer(this.state, action)
-						this.setState( response )
+						console.log('Reponse:', response)
+						this.setState(response)
         } 
     }
 
