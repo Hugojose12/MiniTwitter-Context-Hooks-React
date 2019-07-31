@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 
-const firebaseConfig = {
+const config = {
     apiKey: 'AIzaSyATdyjoW1R9Yl7Hn6Ug0NkDMYJ4mXSnwo0',
     authDomain: 'twitter-7a265.firebaseapp.com',
     databaseURL: 'https://twitter-7a265.firebaseio.com',
@@ -10,6 +10,12 @@ const firebaseConfig = {
     appId: '1:291235149259:web:e896bd3c536947fe'
   };
 
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(config);
 
-export default {};
+const provider = new firebase.auth.GoogleAuthProvider()
+const auth = firebase.auth()
+
+export {
+  provider,
+  auth,
+}

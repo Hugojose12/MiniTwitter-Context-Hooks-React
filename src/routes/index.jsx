@@ -6,7 +6,7 @@ import {ContextStore} from '../store';
 export default () => 
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" render={props=><ContextStore comp={<App />} />} />
+            <Route exact path="/" render={props=><ContextStore comp={<App />} store='user'/>} />
         </Switch>
     </BrowserRouter>
 
