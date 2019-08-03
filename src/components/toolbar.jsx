@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import '../App.css';
 import { auth, provider } from '../firebase';
 import WrapperConsumer from '../store';
+import Avatar from './user/avatar';
 
 class Toolbar extends Component {
 
-  componentDidMount () {
+  async componentDidMount () {
     auth.onAuthStateChanged(user => {
 	  this.props.context.dispatch({type: 'getUser', payload: {user} })
     });
@@ -30,7 +31,7 @@ class Toolbar extends Component {
       return (
         <div className="App-intro">
           <p className="App-intro-user">¡Hola, { user.displayName }!</p>
-          <img src={user.photoURL} alt={user.displayName} data-toggle="tooltip" data-placement="bottom" title={user.displayName}></img>    
+          <Avatar {...user} />    
           <button onClick={this.handleLogout} type="button" className ="btn btn-primary">Salir</button>
         </div>
       );

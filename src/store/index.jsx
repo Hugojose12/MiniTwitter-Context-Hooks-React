@@ -8,9 +8,9 @@ class ContextStore extends Component {
     state = {
         user: null,
         dispatch: (action) => {
-						const response = reducer(this.state, action)
-						console.log('Reponse:', response)
-						this.setState(response)
+			const response = reducer(this.state, action)
+			console.log('Reponse:', response)
+			this.setState(response)
         } 
     }
 
